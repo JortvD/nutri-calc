@@ -196,7 +196,9 @@ class Table {
         }
     };
 
-    static pointsToScore = StdPointsToScore
+    static pointsToScore = StdPointsToScore;
+
+    static computedprops = {};
 
     static getInputNames(obj) {
         return Object.entries(obj).filter(([, prop]) => prop.mode === PropModes.BOTH ||
@@ -345,7 +347,6 @@ class CheeseTable extends Table {
 class FatsTable extends Table {
     static nutriprops = {
         n: {
-            kJ: StdKj,
             sugar: StdSugar,
             satFats: StdSatFats,
             sodium: StdSodium,
@@ -372,10 +373,36 @@ class FatsTable extends Table {
         }
     };
 
+    static computedprops = {
+        n: {
+            kJ: new Prop([
+            [-Infinity, 120, 0],
+            [120, 240, 1],
+            [240, 360, 2],
+            [360, 480, 3],
+            [480, 600, 4],
+            [600, 720, 5],
+            [720, 840, 6],
+            [840, 960, 7],
+            [960, 1080, 8],
+            [1080, 1200, 9],
+            [1200, Infinity, 10],
+            ])
+        }
+    }
+
+    static pointsToScore = [
+        [-Infinity, -6, 'A'],
+        [-6, 2, 'B'],
+        [2, 10, 'C'],
+        [10, 18, 'D'],
+        [18, Infinity, 'E']
+    ];
+
     static getBadValues(nutriInfo) {
         const ratio = nutriInfo.satFats / nutriInfo.totalFats * 100
         return {
-            kjValue: getPoints(this.nutriprops.n.kJ.scale, nutriInfo.kJ),
+            kjValue: getPoints(this.computedprops.n.kJ.scale, (nutriInfo.satFats / 100) * 37),
             sugarValue: getPoints(this.nutriprops.n.sugar.scale, nutriInfo.sugar),
             ratioValue: getPoints(this.nutriprops.n.ratioSatFats.scale, ratio),
             sodiumValue: getPoints(this.nutriprops.n.sodium.scale, saltToSodium(nutriInfo.salt)),

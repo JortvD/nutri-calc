@@ -184,7 +184,7 @@
             <h3>{{ trans('negative_inputs') }}</h3>
             <Scale @colors-calculated="appendPropColor($event, name)"
                    :data="v.points" :fractal="v.fractal" :value="v.value" :name="displayNames(name)"
-                   :scale="resultScale.n[name].scale"
+                   :scale="(computedScale.n && computedScale.n[name]) ? computedScale.n[name].scale : resultScale.n[name].scale"
                    v-for="([name,v], ) in result.negatives" :key="name" :is-positive="false" :short-name="name"
                    :was-used-in-calculation="wasUsedInCalculation(name)"
                    :details-shown-initial="resultNavVisible"
@@ -279,6 +279,9 @@ export default {
     },
     resultScale() {
       return this.resultTable.nutriprops;
+    },
+    computedScale() {
+      return this.resultTable.computedprops;
     },
     currentPointScale() {
       return this.resultTable.pointsToScore;

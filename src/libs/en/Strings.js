@@ -21,12 +21,12 @@ const DisplayNames = {
     goodStuff: 'Vegetables, fruit, nuts',
     cheese: 'Cheese',
     general: 'Solid Foods',
-    fats: 'Fats',
+    fats: 'Nuts & Fats',
     drinks: 'Drinks',
     redmeat: 'Red Meat',
     cheesePlaceholder: 'a cheese',
     generalPlaceholder: 'a solid food',
-    fatsPlaceholder: 'a fat',
+    fatsPlaceholder: 'a nut or fat',
     drinksPlaceholder: 'a drink',
     redmeatPlaceholder: 'red meat',
     name: 'name',
@@ -100,7 +100,7 @@ const InfoTexts = {
     kJ: 'Beschreibt die Energie eines Lebensmittels und wird negativ gewertet.',
     drinks: 'Here the Nutri-Score can be calculated for beverages such as teas, lemonades and juices. Dairy drinks are not calculated here, but via the "Dairy products" category. The Nutri-Score for water is an exception: it is always A. Water is the only beverage that can achieve the score A.',
     cheese: 'Here the Nutri-Score can be calculated for cheese. Cream and butter are calculated with the category "Fats". Quark is not calculated here but in the "Solid Foods" tab',
-    fats: 'Here the Nutri-Score can be calculated for foods with high fat content like cream, oils or butter.',
+    fats: 'Here the Nutri-Score can be calculated for foods with high fat content like cream, oils or butter. This also includes nuts, processed nuts, ground nuts and seeds. Note that chestnuts are not included.',
     general: 'The "General" or "Solid Foods" category is used to calculate the Nutri-Score for solid foods. There are separate calculation types for dairy products, fats and beverages.',
     redmeat: 'Here the Nutri-Score can be calculated for red meat products. The following products are seen as red meat: beef, veal, swine and lamb, though they include also game/venison, horse, donkey, goat, camel and kangaroo.'
 }
