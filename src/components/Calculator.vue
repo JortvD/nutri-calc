@@ -194,7 +194,7 @@
             <h3>{{ trans('positive_inputs') }}</h3>
             <Scale @colors-calculated="appendPropColor($event, name)"
                    :data="value.points" :fractal="value.fractal" :value="value.value" :name="displayNames(name)"
-                   :scale="resultScale.p[name].scale"
+                   :scale="(computedScale.p && computedScale.p[name]) ? computedScale.p[name].scale : resultScale.p[name].scale"
                    v-for="([name,value], )  in result.positives" :key="name" :is-positive="true" :short-name="name"
                    :was-used-in-calculation="wasUsedInCalculation(name)"
                    :unit="getUnit(name)"
@@ -324,7 +324,7 @@ export default {
       resultTable: Object,
       showModalInfoFor: null,
       shareUrl: null,
-      updateTime: (new Date('2022-01-02')).toLocaleString(undefined, {
+      updateTime: (new Date('2023-01-12')).toLocaleString(undefined, {
         year: 'numeric',
         month: '2-digit',
         day: '2-digit'
