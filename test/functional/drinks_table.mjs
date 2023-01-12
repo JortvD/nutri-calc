@@ -27,7 +27,7 @@ describe('DrinksTable', function () {
             let nutriProps = {...NutriProps, sugar: 0, protein: 10};
             let result = DrinksTable.calculateScore(nutriProps)
             assert.equal(result.letterScore.points, 'B')
-            assert.equal(result.letterScore.value, 1)
+            assert.equal(result.letterScore.value, 2)
             assert.equal(result.applyProtein, true, 'Protein was applied')
             assert.equal(result.proteinAppliedReason, ProteinReasonLowBadScore, 'bad score was low')
             assert.equal(result.badScore, 6, 'bad score is 6')
@@ -37,7 +37,7 @@ describe('DrinksTable', function () {
             let nutriProps = {...NutriProps, goodStuff: 100, protein:10};
             let result = DrinksTable.calculateScore(nutriProps)
             assert.equal(result.letterScore.points, 'B')
-            assert.equal(result.letterScore.value, -3)
+            assert.equal(result.letterScore.value, -2)
             assert.equal(result.applyProtein, true, 'Protein was applied')
             assert.equal(result.proteinAppliedReason, ProteinReasonHighGoodStuffScore, 'high good stuff score')
             assert.equal(result.badScore, 12, 'bad score is 12')

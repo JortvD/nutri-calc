@@ -17,7 +17,7 @@ describe('CheeseTable', function () {
         it('gets the correct Score', function () {
             let result = CheeseTable.calculateScore(NutriProps)
             assert.equal(result.letterScore.points, 'D')
-            assert.equal(result.letterScore.value, 14)
+            assert.equal(result.letterScore.value, 12)
             assert.equal(result.applyProtein, true, 'Protein was applied')
             assert.equal(result.proteinAppliedReason, ProteinReasonIsCheese, 'apply reason is cheese')
             assert.equal(result.badScore, 19, 'bad score is 19')

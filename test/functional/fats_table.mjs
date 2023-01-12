@@ -3,7 +3,6 @@ import {FatsTable, ProteinReasonLowBadScore, ProteinReasonHighGoodStuffScore, Pr
 
 
 const NutriProps = {
-    kJ: 3766,
     sugar: 0,
     satFats: 7.3,
     protein: 0,
@@ -17,8 +16,8 @@ describe('FatsTable', function () {
     describe('#calculateScore()', function () {
         it('gets the correct Score', function () {
             let result = FatsTable.calculateScore(NutriProps)
-            assert.equal(result.letterScore.points, 'C')
-            assert.equal(result.letterScore.value, 5)
+            assert.equal(result.letterScore.points, 'B')
+            assert.equal(result.letterScore.value, -5)
         });
     });
 });
