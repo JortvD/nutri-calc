@@ -2,7 +2,8 @@ import {
     ProteinReasonNotApplied,
     ProteinReasonLowBadScore,
     ProteinReasonHighGoodStuffScore,
-    ProteinReasonIsCheese
+    ProteinReasonIsCheese,
+    ProteinReasonIsRedMeat
 } from '@/libs/tables'
 
 
@@ -22,10 +23,12 @@ const DisplayNames = {
     general: 'Solid Foods',
     fats: 'Fats',
     drinks: 'Drinks',
+    redmeat: 'Red Meat',
     cheesePlaceholder: 'a cheese',
     generalPlaceholder: 'a solid food',
     fatsPlaceholder: 'a fat',
     drinksPlaceholder: 'a drink',
+    redmeatPlaceholder: 'red meat',
     name: 'name',
     letterScore: 'Total Score',
     share: 'Share result',
@@ -88,7 +91,8 @@ const ProteinAppliedDisplayNames = new Map([
     [ProteinReasonNotApplied, 'because it is not a cheese, the number of negative points is greater than 11 and the product consists of less than 80% fruit,vegetables or nuts'],
     [ProteinReasonLowBadScore, 'because the number of negative points is less than 11 points'],
     [ProteinReasonHighGoodStuffScore, 'because the negative sum is greater than 11 points, but the product consists of more than 80% fruit, vegetables or nuts'],
-    [ProteinReasonIsCheese, 'because the protein content of cheese is always included']
+    [ProteinReasonIsCheese, 'because the protein content of cheese is always included'],
+    [ProteinReasonIsRedMeat, 'however, the protein content of red meat is set at 2 points maximum']
 ]);
 
 
@@ -97,7 +101,8 @@ const InfoTexts = {
     drinks: 'Here the Nutri-Score can be calculated for beverages such as teas, lemonades and juices. Dairy drinks are not calculated here, but via the "Dairy products" category. The Nutri-Score for water is an exception: it is always A. Water is the only beverage that can achieve the score A.',
     cheese: 'Here the Nutri-Score can be calculated for cheese. Cream and butter are calculated with the category "Fats". Quark is not calculated here but in the "Solid Foods" tab',
     fats: 'Here the Nutri-Score can be calculated for foods with high fat content like cream, oils or butter.',
-    general: 'The "General" or "Solid Foods" category is used to calculate the Nutri-Score for solid foods. There are separate calculation types for dairy products, fats and beverages.'
+    general: 'The "General" or "Solid Foods" category is used to calculate the Nutri-Score for solid foods. There are separate calculation types for dairy products, fats and beverages.',
+    redmeat: 'Here the Nutri-Score can be calculated for red meat products. The following products are seen as red meat: beef, veal, swine and lamb, though they include also game/venison, horse, donkey, goat, camel and kangaroo.'
 }
 
 const InputInfoTexts = {

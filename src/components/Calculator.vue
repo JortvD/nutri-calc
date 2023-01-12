@@ -240,7 +240,7 @@ import {
   FurtherReadings
 } from '@/libs/literature_references'
 
-import {GeneralTable, FatsTable, CheeseTable, DrinksTable, getUnit, WasPropUsedInCalculation} from "@/libs/tables";
+import {GeneralTable, FatsTable, CheeseTable, DrinksTable, RedMeatTable, getUnit, WasPropUsedInCalculation} from "@/libs/tables";
 
 export default {
   name: 'Calculator',
@@ -257,6 +257,8 @@ export default {
           return FatsTable
         case 'cheese':
           return CheeseTable
+        case 'redmeat':
+          return RedMeatTable
         case 'drinks':
           return DrinksTable
         default:
@@ -313,7 +315,7 @@ export default {
       colors: {},
       result: null,
       mode: 'general',
-      tableNames: ['general', 'fats', 'drinks', 'cheese'],
+      tableNames: ['general', 'redmeat', 'fats', 'drinks', 'cheese'],
       sources: Sources,
       furtherReadings: FurtherReadings,
       resultTable: Object,
@@ -455,6 +457,8 @@ export default {
           return `${PATH}butter.svg`
         case 'cheese':
           return `${PATH}cheese-wedge.svg`
+        case 'redmeat':
+          return `${PATH}carne.svg`
         case 'drinks':
           return `${PATH}cup.svg`
         default:

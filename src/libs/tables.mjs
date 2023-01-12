@@ -49,6 +49,7 @@ const ProteinReasonNotApplied = 0;
 const ProteinReasonLowBadScore = 1;
 const ProteinReasonHighGoodStuffScore = 2;
 const ProteinReasonIsCheese = 3;
+const ProteinReasonIsRedMeat = 4;
 
 function getApplyProtein(badScore, goodStuffValue) {
     let applyProtein = (badScore < 11 || (badScore >= 11 && goodStuffValue.value >= 80));
@@ -262,6 +263,46 @@ class GeneralTable extends Table {
             badScore,
             applyProtein: pCalc.applyProtein,
             proteinAppliedReason: pCalc.reason,
+            totalScore,
+            letterScore: getPoints(this.pointsToScore, totalScore, -15)
+        }
+    }
+}
+
+class RedMeatTable extends Table {
+    static calculateScore(nutriInfo) {
+        const {kjValue, sugarValue, satFatsValue, sodiumValue} = this.getBadValues(nutriInfo)
+        const {protValue, fiberValue, goodStuffValue} = this.getGoodValues(nutriInfo)
+
+        const badScore = kjValue.points + sugarValue.points + satFatsValue.points + sodiumValue.points;
+        const pCalc = getApplyProtein(badScore, goodStuffValue);
+
+        let totalScore = badScore - goodStuffValue.points - fiberValue.points;
+
+        protValue.points = Math.min(protValue.points, 2);
+
+        if (pCalc.applyProtein) {
+            totalScore -= protValue.points;
+        }
+
+        return {
+            negatives: new Map(
+                [
+                    ['kJ', kjValue],
+                    ['sugar', sugarValue],
+                    ['satFats', satFatsValue],
+                    ['sodium', sodiumValue],
+                ]
+            ),
+            positives: new Map([
+                    ['protein', protValue],
+                    ['fiber', fiberValue],
+                    ['goodStuff', goodStuffValue]
+                ]
+            ),
+            badScore,
+            applyProtein: pCalc.applyProtein,
+            proteinAppliedReason: ProteinReasonIsRedMeat,
             totalScore,
             letterScore: getPoints(this.pointsToScore, totalScore, -15)
         }
@@ -489,11 +530,13 @@ export {
     FatsTable,
     DrinksTable,
     CheeseTable,
+    RedMeatTable,
     getUnit,
     ProteinReasonIsCheese,
     ProteinReasonNotApplied,
     ProteinReasonLowBadScore,
     ProteinReasonHighGoodStuffScore,
+    ProteinReasonIsRedMeat,
     WasPropUsedInCalculation,
     getPoints,
     Prop
