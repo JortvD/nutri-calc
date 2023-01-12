@@ -14,8 +14,8 @@
             <h5>Limits</h5>
             <p class=" text-success">
               <inline-icon type="check"></inline-icon>
-              Fruits, vegetables and legumes, as well as nuts count in the calculation, but
-              ...
+              Fruits, vegetables and legumes count in the calculation. All of the following Eurocodes are allowed:<br>
+              8.10 (Leaf vegetables); 8.15 (Brassicas); 8.20 (Stalk vegetables); 8.25 (Shoot vegetables); 8.30 (Onion-family vegetables); 8.38 (Root vegetables); 8.40 (Fruit vegetables); 8.42 (Flower-head vegetables); 8.45 (Seed vegetables and immature pulses); 8.50 (Edible fungi); 8.55 (Seaweeds and algae); 8.60 (Vegetable mixtures); 9.10 (Malaceous fruit); 9.20 (Prunus species fruit); 9.25 (Other stone fruit); 9.30 (Berries); 9.40 (Citrus fruit); 9.50 (Miscellaneous fruit); 9.60 (Fruit mixtures); 7.10 (Pulses).
             </p>
             <p class=" text-danger">
               <inline-icon type="times"></inline-icon>
