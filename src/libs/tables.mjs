@@ -353,17 +353,17 @@ class FatsTable extends Table {
             totalFats: new Prop(null, PropModes.ONLY_INPUT),
             salt: StdSalt,
             ratioSatFats: new Prop([
-                [-Infinity, 10, 0],
-                [10, 16, 1],
-                [16, 22, 2],
-                [22, 28, 3],
-                [28, 34, 4],
-                [34, 40, 5],
-                [40, 46, 6],
-                [46, 52, 7],
-                [52, 58, 8],
-                [58, 64, 9],
-                [64, Infinity, 10]
+                [-Infinity, 9.99, 0],
+                [9.99, 15.99, 1],
+                [15.99, 21.99, 2],
+                [21.99, 27.99, 3],
+                [27.99, 33.99, 4],
+                [33.99, 39.99, 5],
+                [39.99, 45.99, 6],
+                [45.99, 51.99, 7],
+                [51.99, 57.99, 8],
+                [57.99, 63.99, 9],
+                [63.99, Infinity, 10]
             ], PropModes.ONLY_OUTPUT)
         },
         p: {
