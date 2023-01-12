@@ -402,7 +402,7 @@ class FatsTable extends Table {
     static getBadValues(nutriInfo) {
         const ratio = nutriInfo.satFats / nutriInfo.totalFats * 100
         return {
-            kjValue: getPoints(this.computedprops.n.kJ.scale, (nutriInfo.satFats / 100) * 37),
+            kjValue: getPoints(this.computedprops.n.kJ.scale, nutriInfo.satFats * 37),
             sugarValue: getPoints(this.nutriprops.n.sugar.scale, nutriInfo.sugar),
             ratioValue: getPoints(this.nutriprops.n.ratioSatFats.scale, ratio),
             sodiumValue: getPoints(this.nutriprops.n.sodium.scale, saltToSodium(nutriInfo.salt)),
