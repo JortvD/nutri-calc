@@ -5,17 +5,24 @@ cd src\components || exit 1
 
 if not exist "%lc%" (
   echo dir %lc% does not exist in %cd%, exiting
+  cd ..\.. || exit 1
   exit 255
 )
-del localized 2>nul
+if exist .\localized (
+  rd /s /q .\localized
+)
 mklink /J localized %lc%
 
 echo Changing libs to %lc%
-cd ..\libs || exit 2
+cd ..\libs || exit 1
 if not exist "%lc%" (
   echo dir %lc% does not exist in %cd%, exiting
+  cd ..\.. || exit 1
   exit 255
 )
-del localized 2>nul
+if exist .\localized (
+  rd /s /q .\localized
+)
 mklink /J localized %lc%
+cd ..\.. || exit 1
 echo Done

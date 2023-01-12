@@ -5,10 +5,15 @@
   "private": true,
   "scripts": {
     "serve": "./switch_to_lc.sh en && npx vue-cli-service serve",
-    "serve-de": "./switch_to_lc.sh de && vue-cli-service serve",
+    "serve-win": "\".\\switch_to_lc.bat\" en && npx vue-cli-service serve",
+    "serve-de": "./switch_to_lc.sh de && npx vue-cli-service serve",
+    "serve-de-win": "\".\\switch_to_lc.bat\" de && npx vue-cli-service serve",
     "build": "npm run build-en && npm run build-de",
-    "build-de": "rm -rf docs/de; ./switch_to_lc.sh de && vue-cli-service build --mode de && ./build_for_lc.sh de",
-    "build-en": "rm -rf docs/en; ./switch_to_lc.sh en && vue-cli-service build --mode en && ./build_for_lc.sh en",
+    "build-de": "rm -rf docs/de; ./switch_to_lc.sh de && npx vue-cli-service build --mode de && ./build_for_lc.sh de",
+    "build-en": "rm -rf docs/en; ./switch_to_lc.sh en && npx vue-cli-service build --mode en && ./build_for_lc.sh en",
+    "build-win": "npm run build-en-win && npm run build-de-win",
+    "build-de-win": "\".\\build.bat\" de",
+    "build-en-win": "\".\\build.bat\" en",
     "lint": "vue-cli-service lint",
     "test": "./node_modules/mocha/bin/mocha --recursive"
   },
